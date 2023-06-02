@@ -380,9 +380,6 @@ describe('field has primitive', () => {
   });
   expect(result).toHaveLength(0);
 });
-
-//
-//
 //
 // describe('test', () => {
 //   const data = {
@@ -501,4 +498,3 @@ describe('field has primitive', () => {
 //   expect(result).toHaveLength(1);
 //   expect(result[0]).toBe(items[1]);
 // });
-
