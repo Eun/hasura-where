@@ -1,0 +1,51 @@
+# this workflow will run on all pushes.
+on:
+  push:
+
+name: "push"
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v3.5.2
+      -
+        name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      -
+        name: Lint
+        run: yarn run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v3.5.2
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Test
+        run: yarn run test:ci
+      -
+        name: Send coverage
+        uses: coverallsapp/github-action@v2
+
+  # draft your next release notes as pull requests are merged into "master"
+  # the configuration is at /.github/release-drafter.yml.
+  update_release_draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        if: github.ref == 'refs/heads/master'
+        with:
+          config-name: release-drafter.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
