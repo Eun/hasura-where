@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
-    "build": "rm -rf dist && rollup -c rollup.config.js && yarn make:docs",
+    "build": "rm -rf dist && rollup -c rollup.config.js",
     "test": "jest --coverage",
     "test:ci": "cross-env CI=1 jest --coverage",
     "lint": "eslint ."
