@@ -24,7 +24,10 @@ jobs:
         name: Build
         run: yarn run build
       -
+        name: Adjust version
+        run: npm version ${{ env.GITHUB_REF_SLUG }}
+      -
         name: Publish
-        run: npm publish
+        run: npm publish --dry-run
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
