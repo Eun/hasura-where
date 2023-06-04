@@ -1,6 +1,8 @@
 # hasura-where
 [![Actions Status](https://github.com/Eun/hasura-where/workflows/push/badge.svg)](https://github.com/Eun/hasura-where/actions)
 [![Coverage Status](https://coveralls.io/repos/github/Eun/hasura-where/badge.svg?branch=master)](https://coveralls.io/github/Eun/hasura-where?branch=master)
+[![npm](https://img.shields.io/npm/v/hasura-where.svg?logo=npm)](https://npmjs.com/package/shasura-where)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ---
 Run hasura where queries on the client side:
 
