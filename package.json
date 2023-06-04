@@ -13,10 +13,14 @@
   },
   "license": "MIT",
   "private": false,
+  "homepage": "https://github.com/Eun/hasura-where",
   "repository": {
-    "url": "github.com/Eun/hasura-where",
-    "type": "git"
+    "type": "git",
+    "url": "git+https://github.com/Eun/hasura-where",
   },
+  "bugs": {
+    "url": "https://github.com/Eun/hasura-where/issues"
+  }
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
     "build": "rm -rf dist && rollup -c rollup.config.js",
