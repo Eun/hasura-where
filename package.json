@@ -12,7 +12,7 @@
     "email": "tobias@salzmann.berlin"
   },
   "license": "MIT",
-  "private": true,
+  "private": false,
   "repository": {
     "url": "github.com/Eun/hasura-where",
     "type": "git"
