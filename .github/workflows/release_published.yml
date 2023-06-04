@@ -27,9 +27,12 @@ jobs:
         run: yarn run build
       -
         name: Adjust version
-        run: npm version ${{ env.GITHUB_REF_SLUG }}
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm version ${{ env.GITHUB_REF_SLUG }}
       -
         name: Publish
-        run: npm publish --dry-run
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
