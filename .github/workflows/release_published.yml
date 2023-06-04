@@ -33,6 +33,6 @@ jobs:
           npm version --no-git-tag-version ${{ env.GITHUB_REF_SLUG }}
       -
         name: Publish
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JS-DevTools/npm-publish@v2
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
