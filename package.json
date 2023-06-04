@@ -16,7 +16,7 @@
   "homepage": "https://github.com/Eun/hasura-where",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Eun/hasura-where",
+    "url": "git+https://github.com/Eun/hasura-where"
   },
   "bugs": {
     "url": "https://github.com/Eun/hasura-where/issues"
