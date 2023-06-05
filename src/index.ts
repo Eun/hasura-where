@@ -68,11 +68,29 @@ export function matchesFilter<T extends object>(
     }
     if (!(whereKey in item)) {
       if ('_is_null' in exp && exp['_is_null'] === true) {
+        // see test '_is_null is true on unknown field'
         continue;
       }
+      // see test 'unknown key'
       return false;
     }
     const itemValue = item[whereKey as keyof T];
+    if (itemValue === null || itemValue === undefined) {
+      if ('_is_null' in exp) {
+        if (exp['_is_null'] === true) {
+          // see test '_is_null is true on null field'
+          continue;
+        }
+      }
+      return false;
+    } else {
+      if ('_is_null' in exp) {
+        if (exp['_is_null'] === true) {
+          // see test '_is_null is true on non null field'
+          return false;
+        }
+      }
+    }
     if ('_eq' in exp) {
       if (!(itemValue === exp['_eq'])) {
         return false;
@@ -94,17 +112,6 @@ export function matchesFilter<T extends object>(
       }
       if (!exp['_in'].includes(itemValue)) {
         return false;
-      }
-    }
-    if ('_is_null' in exp) {
-      if (itemValue === null) {
-        if (exp['_is_null'] === false) {
-          return false;
-        }
-      } else {
-        if (exp['_is_null'] === true) {
-          return false;
-        }
       }
     }
     if ('_lt' in exp) {
