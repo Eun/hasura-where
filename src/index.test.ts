@@ -19,6 +19,10 @@ const items = [
         name: 'Developers',
       },
     ],
+    company: {
+      id: 1,
+      name: 'Earth',
+    },
   },
   {
     id: 2,
@@ -33,6 +37,7 @@ const items = [
         name: 'Developers',
       },
     ],
+    company: null,
   },
   {
     id: 3,
@@ -47,6 +52,10 @@ const items = [
         name: 'Users',
       },
     ],
+    company: {
+      id: 2,
+      name: 'Wind',
+    },
   },
 ];
 
@@ -380,6 +389,19 @@ describe('field has primitive', () => {
   });
   expect(result).toHaveLength(0);
 });
+
+describe('test nested field is null', () => {
+  const result = filter(items, {
+    company: {
+      name: {
+        _eq: 'Earth',
+      },
+    },
+  });
+  expect(result).toHaveLength(1);
+  expect(result[0]).toBe(items[0]);
+});
+
 //
 // describe('test', () => {
 //   const data = {
